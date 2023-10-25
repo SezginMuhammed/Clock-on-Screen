@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </div>
+
+    <script>
+        var date = new Date();
+        var saat,dakika,saniye;
+        saat = date.getHours();/* saat */
+        dakika=date.getMinutes();/* dakika */
+        saniye = date.getSeconds();/* saniye */
+
+        setInterval (function () {
+            document.getElementById("box1").innerHTML = saat;
+            document.getElementById("box2").innerHTML =dakika;
+            document.getElementById("box3").innerHTML =saniye++;
+            if (Number( document.getElementById("box3").innerHTML)==59){
+               
+                dakika++;
+                saniye=0;
+            }
+            if (Number( document.getElementById("box2").innerHTML)==59){
+               
+               saat++;
+               dakika=0;
+           }
+           if (Number( document.getElementById("box1").innerHTML)==23){
+               
+               saat=0;
+               dakika=0;
+           }
+        },1000)
+    </script>
+</body>
+
+</html>
